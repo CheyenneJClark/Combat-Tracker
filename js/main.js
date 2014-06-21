@@ -1,15 +1,5 @@
 'use strict';
 
-
-
-//Collections
-
-app.allCombatants = Backbone.Collection.extend({
-    model: app.singleCombatant,
-    localStorage: new Store("backbone-party")
-});
-app.combatants = new app.allCombatants();
-
 //Views
 //Renders each combatant
 app.CombatantView = Backbone.View.extend({
@@ -99,7 +89,10 @@ app.Router = Backbone.Router.extend({
 
 
 //Initializers
+app.combatants = new app.allCombatants();
+
 app.router = new app.Router();
 Backbone.history.start();
+
 app.appView = new app.AppView();
 
