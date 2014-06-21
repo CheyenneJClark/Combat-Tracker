@@ -1,27 +1,14 @@
 'use strict';
 
-var app = {}; //app namespace
 
-
-//Models
-
-app.Party = Backbone.Model.extend({
-	defaults: {
-		name: '',
-		dead: false
-	},
-    toggle: function(){
-        this.save({ dead: !this.get('dead') });
-    }
-});
 
 //Collections
 
-app.Combatants = Backbone.Collection.extend({
-    model: app.Party,
+app.allCombatants = Backbone.Collection.extend({
+    model: app.singleCombatant,
     localStorage: new Store("backbone-party")
 });
-app.combatants = new app.Combatants();
+app.combatants = new app.allCombatants();
 
 //Views
 //Renders each combatant
