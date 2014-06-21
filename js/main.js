@@ -96,7 +96,23 @@ app.AppView = Backbone.View.extend({
 	} 
 });
 
+//Routes
+app.Router = Backbone.Router.extend({
+    routes: {
+        '*filter': 'setFilter'
+    },
+    setFilter: function(params){
+        if (!params) return;
+        
+        console.log('app.router.params= ' + params);
+        window.filter = params.trim() || '';
+        app.combatants.trigger('reset');
+    }
+});
+
 
 //Initializers
+app.router = new app.Router();
+Backbone.history.start();
 app.appView = new app.AppView();
 
