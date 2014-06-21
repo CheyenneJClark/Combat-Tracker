@@ -27,8 +27,8 @@
 
         <script type="text/template" id="combatant-template">
             <div class="view">
-                 <input class="toggle" type="checkbox">
-                 <label><%= name %></label> 
+                 <input class="toggle" type="checkbox" <%= dead ? 'checked' : '' %>>
+                 <label><%= name %></label>
                  <input class="edit" value="<%- name %>">
             </div>
         </script>
