@@ -10,7 +10,7 @@ app.CombatantView = Backbone.View.extend({
     },
     initialize: function(){
         this.model.on('change', this.render, this);
-    },
+            },
     events:{
         'dblclick label': 'edit',
         'keypress .edit': 'updateOnEnter',
